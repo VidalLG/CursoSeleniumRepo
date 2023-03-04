@@ -118,9 +118,36 @@ public class Locators {
          */
 
 
-        //***************************
+        /*
         WebElement userName = driver.findElement(By.xpath("/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[4]/td/table/tbody/tr[2]/td[2]/input"));
         userName.sendKeys("Locura");
+        Thread.sleep(3000);
+
+         */
+
+        //********************************** Xpath Relativo ********************************
+        /*
+        - El uso de xpath relativo inicia con un DOBLE (diagonal) " // "
+        - El uso de xpath relativo se realiza por medio de los tags y atributo,
+        entiendase que tags, son: span, img, button, input, etc...
+
+         */
+
+        //1. Un atributo
+
+        /*WebElement userName = driver.findElement(By.xpath("//input[@name='userName']"));
+        userName.sendKeys("VidalLG");
+        Thread.sleep(3000);*/
+
+        //2. Dos atributos
+        /*WebElement demoSite = driver.findElement(By.xpath("//a[@title='Home' and @style='font-size:32px;']"));
+        demoSite.click();
+        Thread.sleep(3000);*/
+
+        //3.Uso de xpath usando contains, con: "*" o "tag" , cabe mencionar que se puede utulizar uno u otro
+
+        WebElement demoSite = driver.findElement(By.xpath("//*[contains(text(), 'Demo Site')]"));
+        demoSite.click();
         Thread.sleep(3000);
 
 
