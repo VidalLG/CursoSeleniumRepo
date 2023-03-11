@@ -61,7 +61,6 @@ public class DropDown {
        // selectList.selectByVisibleText(day);
        // selectList.selectByValue("Tuesday");
         // selectList.selectByIndex(5);
-        //
 
         Thread.sleep(3000);
 
