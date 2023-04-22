@@ -20,7 +20,7 @@ public class AlertAndPopup {
         Thread.sleep(3000);
     }
 
-    @Test@Ignore
+    @Test
     public void aceptarAlert() throws InterruptedException {
         WebElement launchModal = driver.findElement(By.xpath("//button[@onclick='myAlertFunction()']"));
         launchModal.click();
@@ -31,12 +31,12 @@ public class AlertAndPopup {
         Thread.sleep(3000);
     }
 
-    @Test
+    @Test@Ignore
     public void dismissAlert () throws InterruptedException {
         //Instancia de Java Script
         JavascriptExecutor js = (JavascriptExecutor)driver;
 
-        //Con este codigo odemos crear alertas
+        //Con este codigo podemos crear alertas
         js.executeScript("alert('Esta es mi alerta');");
         Thread.sleep(3000);
         String alerta = driver.switchTo().alert().getText();
