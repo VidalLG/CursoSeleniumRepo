@@ -1,9 +1,7 @@
 package Selenium_Advanced;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
@@ -25,16 +23,35 @@ public class ScreenShot {
 
         //driver = new FirefoxDriver();
         driver.manage().window().maximize();
-        driver.get("http://demo.seleniumeasy.com/basic-checkbox-demo.html");
+        //driver.get("http://demo.seleniumeasy.com/basic-checkbox-demo.html");
+        driver.get("http://demo.seleniumeasy.com/basic-select-dropdown-demo.html");
         driver.manage().deleteAllCookies();
         //driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
+    public void sacarScreenShot() throws IOException, InterruptedException {
+
+
+        for (int i = 0; i < i; ){
+
+            File screenShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(screenShot, new File("src/test/java/Screens/screenScroll" + i + ".png"));
+            //Thread.sleep(3000);
+            i ++;
+        }
+
+
+
+    }
+
+
     @Test
     public void screenShot() throws IOException, InterruptedException {
-        File screenShot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(screenShot, new File("src/test/java/Screens/screen.png"));
-        Thread.sleep(3000);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        sacarScreenShot();
+        js.executeScript("window.scrollBy(0,380)");
+        sacarScreenShot();
+
     }
 
 
@@ -45,6 +62,7 @@ public class ScreenShot {
         driver.close();
         driver.quit();
     }
+
 
 
 }
